@@ -39,9 +39,9 @@ const About = () => {
   return (
     <>
       <div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Google Developer Group (GDG)</p>
+        <p className={styles.sectionSubText}>Introduction</p>
         <h5 className={`${styles.sectionHeadText} animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black`}>
-          GDG on Campus - PESCE, Mandya.
+          About Me
         </h5>
       </div>
       <div className="flex items-center min-[1000px]:flex-row flex-col-reverse">
@@ -49,27 +49,23 @@ const About = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-          Google Developer Groups (GDG) is a global network of developers who share a passion for building technology solutions using Google’s developer tools and platforms. At PES College of Engineering, our GDG chapter provides a vibrant community where students collaborate, innovate, and grow together through various activities and events. 
+          I'm a Computer Science Engineering student at PES College of Engineering, Mandya, with a strong passion for Machine Learning, Data Science, and Web Development. My technical journey has equipped me with a diverse skill set in programming languages and frameworks.
 
-          <br /><br />
+          <br />
           
-          Our goal is to empower students by organizing workshops, hackathons, coding challenges, and tech talks that enhance their knowledge in cutting-edge technologies like Machine Learning, Cloud Computing, Web Development, and Mobile App Development. We also offer opportunities for students to connect with industry professionals, learn from their experiences, and gain hands-on exposure to real-world projects.
+          My expertise includes Python, SQL, and various ML libraries like NumPy, Pandas, Sci-kit Learn, PyTorch, and TensorFlow. I'm also proficient in web development using the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS) and Flask. Additionally, I have experience with version control systems like Git and cloud platforms like AWS.
 
-          <br /><br />
+          <br />
           
-          Whether you're interested in Google Cloud, Android Development, or the latest AI advancements, GDG PES College of Engineering fosters a welcoming environment for students to learn, create, and innovate. If you're looking to expand your skills, collaborate with like-minded individuals, or simply explore new technologies, our GDG community is the perfect place to start.
+          I've worked on several projects including an Unbiased News Recommendation System, Credit Card Fraud Detection, and an EBook Library using the MERN stack. These projects have allowed me to apply my technical skills to solve real-world problems and create user-friendly applications.
 
-          <br /><br />
+          <br />
           
-          To learn more about the GDG program and how to get involved, visit the official GDG website:{" "}
-          <a
-            href="https://developers.google.com/community"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black"
-          >
-            GDG Official Site
-          </a>.
+          I'm proud of my achievements, including securing 2nd place in Reverse Coding at the 19th ISTE Karnataka State Level Student Convention, placing in the top 6 at HackQuest, and winning the Webkirthi competition at Techno Speare. I'm constantly looking to expand my knowledge and take on new challenges in the tech world.
+
+          <br />
+          
+          Beyond coding, I enjoy photography, video editing, and gaming - creative outlets that complement my technical skills.
         </p>
         <Tilt className="xs:w-[350px] xs:h-[350px] w-full h-full m-auto max-[1000px]:my-14">
           <div
