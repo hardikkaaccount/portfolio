@@ -102,11 +102,11 @@ const Freelance: React.FC = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Freelance</p>
+        <p className={styles.sectionSubText}>Contract Projects</p>
         <h2
           className={`${styles.sectionHeadText} animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black`}
         >
-          Projects & Collaborations
+          Freelance & Contract Based
         </h2>
       </motion.div>
 
