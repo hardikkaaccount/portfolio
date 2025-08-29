@@ -1,0 +1,110 @@
+/* Container for the carousel */
+.carousel-container {
+  padding: 0%;  
+  height: fit-content;
+}
+
+.carousel-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.image-content {
+  flex-shrink: 0;
+  width: 450px; /* Adjust the width of the small image */
+}
+
+.small-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Title Style */
+.title-style {
+    font-size: 28px;
+    font-weight: bold;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent; /* Text gradient */
+    margin-bottom: 0.5rem;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  /* Description Style */
+  .description-style {
+    font-size: 16px;
+    font-weight: normal;
+    color: #d1cfcf; /* Muted text color */
+    line-height: 1.5;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+
+  }
+  
+  /* Responsive Alignment */
+  @media (max-width: 767px) {
+    .text-content {
+      text-align: center;
+    }
+  }
+
+  
+/* Desktop & Tablet Layout */
+@media (min-width: 768px) {
+  .carousel-content {
+    flex-direction: row; /* Side by side layout */
+  }
+
+  .text-content {
+    max-width: 60%; /* Title and description take up 60% */
+  }
+
+  .image-content {
+    max-width: 35%; /* Image takes up 35% */
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 767px) {
+  .carousel-content {
+    flex-direction: column; /* Stacked layout */
+    align-items: center;
+  }
+
+  .text-content {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .image-content {
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+}
+/* Carousel Dot Customization */
+  .slick-dots li button {
+    background-color: white !important; /* Set the dots color to white */
+    opacity: 0.5; /* Adjust opacity if you want a subtle effect */
+    border-radius: 50%; /* Make dots round */
+    height: 10px; /* Size of the dots */
+    width: 10px; /* Size of the dots */
+  }
+  
+  .slick-dots li.slick-active button {
+    background-color: white !important; /* Make the active dot white */
+    opacity: 1; /* Make the active dot more visible */
+  }
+  
+  .slick-dots li button:hover {
+    background-color: white !important; /* Ensure the dots are white on hover */
+    opacity: 1; /* Set opacity to full on hover */
+  }
+  
