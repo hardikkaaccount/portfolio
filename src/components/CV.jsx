@@ -5,7 +5,7 @@ import { styles } from "../styles"
 import { SectionWrapper } from "../hoc"
 import { fadeIn, textVariant } from "../utils/motion"
 import { CVDuncan } from "../constants"
-import CVDoc from "../assets/hardik_resume.pdf"
+import CVDoc from "/Hardik_resume.pdf" // Fixed path for production build
 
 const Card = ({ index, text, name, designation, company, image }) => (
   <div className="bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full select-none">

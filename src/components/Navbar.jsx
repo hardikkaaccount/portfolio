@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
-import resume from "../../public/hardik_resume.pdf"; // Ensure this is the correct path
+import resume from "/Hardik_resume.pdf"; // Fixed path for production build
 import { main_logo } from "../assets";
 
 const Navbar = () => {
