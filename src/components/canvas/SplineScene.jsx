@@ -30,11 +30,13 @@ const SplineScene = () => {
       <Spline 
         scene="/scene.splinecode"
         style={{
-          width: '100%',
-          height: '100vh',
+          width: isMobile ? '90%' : '100%', // Smaller width on mobile
+          height: isMobile ? '90vh' : '100vh', // Smaller height on mobile
           position: 'absolute',
-          top: '150px', // Move down more on all devices
-          right: isMobile ? '0' : '-150px', // Move further right on desktop
+          top: '150px', // Move down on all devices
+          right: isMobile ? '0' : '-150px', // Move right on desktop
+          transform: isMobile ? 'scale(0.8)' : 'scale(1)', // Scale down on mobile
+          transformOrigin: 'center center',
         }}
       />
     </div>

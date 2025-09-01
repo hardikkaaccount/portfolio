@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -16,6 +16,19 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [isHighEndSystem, setIsHighEndSystem] = useState(false);
+
+  useEffect(() => {
+    // Check if the system is high-end based on device memory and hardware concurrency
+    const checkSystemCapabilities = () => {
+      const memory = navigator.deviceMemory || 4; // Default to 4 if not available
+      const cores = navigator.hardwareConcurrency || 4; // Default to 4 if not available
+      const isHighEnd = memory >= 4 && cores >= 4; // Consider high-end if 4GB+ RAM and 4+ cores
+      setIsHighEndSystem(isHighEnd);
+    };
+
+    checkSystemCapabilities();
+  }, []);
 
   const handleChange = (e) => {
     const { target } = e;
@@ -127,10 +140,13 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
       >
-        {/* <EarthCanvas /> */}
-        <div className="w-full h-full flex items-center justify-center bg-tertiary rounded-2xl">
-          <p className="text-white text-lg">3D Earth View (Disabled)</p>
-        </div>
+        {isHighEndSystem ? (
+          <EarthCanvas />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-tertiary rounded-2xl">
+            <p className="text-white text-lg">3D Earth View (Available on higher-end devices)</p>
+          </div>
+        )}
       </motion.div>
     </div>
   );

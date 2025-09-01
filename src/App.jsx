@@ -1,4 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import {
   About,
@@ -9,49 +10,67 @@ import {
   Navbar,
   Tech,
   Works,
-  // StarsCanvas, // Temporarily disabled heavy canvas
+  StarsCanvas,
   Footer,
   Achivement,
   Freelance, // ✅ added
 } from "./components";
 
 const App = () => {
+  const [isLargeDevice, setIsLargeDevice] = useState(false);
+
+  useEffect(() => {
+    // Check if device is large (desktop/laptop)
+    const checkDevice = () => {
+      setIsLargeDevice(window.innerWidth >= 1024); // 1024px is typically laptop size
+    };
+    
+    // Initial check
+    checkDevice();
+    
+    // Add event listener for window resize
+    window.addEventListener("resize", checkDevice);
+    
+    // Cleanup
+    return () => window.removeEventListener("resize", checkDevice);
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
         <div className="relative z-20 bg-no-repeat bg-center">
           <Navbar />
           <Hero />
-          {/* <StarsCanvas /> */}
+          {isLargeDevice && <StarsCanvas />}
         </div>
         <div className="relative z-0">
           <About />
-          {/* <StarsCanvas /> */}
+          {isLargeDevice && <StarsCanvas />}
         </div>
         <div className="relative z-0">
           <Experience />
-          {/* <StarsCanvas /> */}
+          {isLargeDevice && <StarsCanvas />}
         </div>
         <div className="relative z-0">
           <Freelance />   {/* ✅ New Section */}
-          {/* <StarsCanvas /> */}
+          {isLargeDevice && <StarsCanvas />}
         </div>
         <div className="relative z-0">
           <Tech />
           <Works />
-          {/* <StarsCanvas /> */}
+          {isLargeDevice && <StarsCanvas />}
         </div>
         <div className="relative z-0">
           <Feedbacks />
-          {/* <StarsCanvas /> */}
+          {isLargeDevice && <StarsCanvas />}
         </div>
         <div className="relative z-0">
           <Achivement />
-          {/* <StarsCanvas /> */}
+          {isLargeDevice && <StarsCanvas />}
         </div>
         <div className="relative z-0">
           <Contact />
-          {/* <StarsCanvas /> */}
+          {isLargeDevice && <StarsCanvas />}
         </div>
         <Footer />
       </div>
