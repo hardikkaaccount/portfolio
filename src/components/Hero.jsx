@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
-import { SplineScene } from "./canvas";
+// import { SplineScene } from "./canvas"; // Temporarily disabled heavy canvas
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 import {
@@ -53,7 +53,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <SplineScene />
+      {/* <SplineScene /> */}
 
 
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">

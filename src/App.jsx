@@ -9,7 +9,7 @@ import {
   Navbar,
   Tech,
   Works,
-  StarsCanvas,
+  // StarsCanvas, // Temporarily disabled heavy canvas
   Footer,
   Achivement,
   Freelance, // ✅ added
@@ -22,36 +22,36 @@ const App = () => {
         <div className="relative z-20 bg-no-repeat bg-center">
           <Navbar />
           <Hero />
-          <StarsCanvas />
+          {/* <StarsCanvas /> */}
         </div>
         <div className="relative z-0">
           <About />
-          <StarsCanvas />
+          {/* <StarsCanvas /> */}
         </div>
         <div className="relative z-0">
           <Experience />
-          <StarsCanvas />
+          {/* <StarsCanvas /> */}
         </div>
         <div className="relative z-0">
           <Freelance />   {/* ✅ New Section */}
-          <StarsCanvas />
+          {/* <StarsCanvas /> */}
         </div>
         <div className="relative z-0">
           <Tech />
           <Works />
-          <StarsCanvas />
+          {/* <StarsCanvas /> */}
         </div>
         <div className="relative z-0">
           <Feedbacks />
-          <StarsCanvas />
+          {/* <StarsCanvas /> */}
         </div>
         <div className="relative z-0">
           <Achivement />
-          <StarsCanvas />
+          {/* <StarsCanvas /> */}
         </div>
         <div className="relative z-0">
           <Contact />
-          <StarsCanvas />
+          {/* <StarsCanvas /> */}
         </div>
         <Footer />
       </div>
