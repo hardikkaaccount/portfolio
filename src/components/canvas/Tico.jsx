@@ -53,6 +53,15 @@ const TicofabCanvas = () => {
     };
   }, []);
 
+  // Don't render the 3D model on mobile devices to prevent blank screen issues
+  if (isMobile) {
+    return (
+      <div className="w-full h-full absolute inset-0 flex items-end justify-center">
+        <div className="w-full h-1/3 bg-gradient-to-t from-[#050816] to-transparent" />
+      </div>
+    );
+  }
+
   return (
     <Canvas
       frameloop='demand'
