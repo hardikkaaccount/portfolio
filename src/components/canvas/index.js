@@ -3,4 +3,5 @@ import BallCanvas from "./Ball";
 import ComputersCanvas from "./Computers";
 import StarsCanvas from "./Stars";
 import TicofabCanvas from "./Tico";
-export { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas, TicofabCanvas };
+import SplineScene from "./SplineScene";
+export { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas, TicofabCanvas, SplineScene };
