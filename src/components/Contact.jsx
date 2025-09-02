@@ -17,17 +17,25 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
   const [isHighEndSystem, setIsHighEndSystem] = useState(false);
+  const [isBigScreen, setIsBigScreen] = useState(false);
 
   useEffect(() => {
-    // Check if the system is high-end based on device memory and hardware concurrency
-    const checkSystemCapabilities = () => {
-      const memory = navigator.deviceMemory || 4; // Default to 4 if not available
-      const cores = navigator.hardwareConcurrency || 4; // Default to 4 if not available
-      const isHighEnd = memory >= 4 && cores >= 4; // Consider high-end if 4GB+ RAM and 4+ cores
-      setIsHighEndSystem(isHighEnd);
-    };
+    // Check if system is high-end
+    const memory = navigator.deviceMemory || 4;
+    const cores = navigator.hardwareConcurrency || 4;
+    const isHighEnd = memory >= 4 && cores >= 4;
+    setIsHighEndSystem(isHighEnd);
 
-    checkSystemCapabilities();
+    // Check if screen is big (desktop/laptop)
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    setIsBigScreen(mediaQuery.matches);
+
+    const handleScreenChange = (e) => setIsBigScreen(e.matches);
+    mediaQuery.addEventListener("change", handleScreenChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleScreenChange);
+    };
   }, []);
 
   const handleChange = (e) => {
@@ -71,83 +79,81 @@ const Contact = () => {
         (error) => {
           setLoading(false);
           console.error(error);
-
           alert("Oops, something went wrong. Please try again.");
         }
       );
   };
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-    >
+    <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+        className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
         <p className={styles.sectionSubText}>Let's Connect</p>
-        <h2 className={`${styles.sectionHeadText} animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black`}>Reach Out.</h2>
+        <h2
+          className={`${styles.sectionHeadText} animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent font-black`}
+        >
+          Reach Out.
+        </h2>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-8'
+          className="mt-12 flex flex-col gap-8"
         >
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Full Name</span>
+          <label className="flex flex-col">
+            <span className="text-white font-medium mb-4">Your Full Name</span>
             <input
-              type='text'
-              name='name'
+              type="text"
+              name="name"
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Email Address</span>
+          <label className="flex flex-col">
+            <span className="text-white font-medium mb-4">Your Email Address</span>
             <input
-              type='email'
-              name='email'
+              type="email"
+              name="email"
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Message</span>
+          <label className="flex flex-col">
+            <span className="text-white font-medium mb-4">Your Message</span>
             <textarea
               rows={7}
-              name='message'
+              name="message"
               value={form.message}
               onChange={handleChange}
               placeholder="What's your message?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
 
           <button
-            type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            type="submit"
+            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </motion.div>
 
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
-      >
-        {isHighEndSystem ? (
+      {isHighEndSystem && isBigScreen && (
+        <motion.div
+          variants={slideIn("right", "tween", 0.2, 1)}
+          className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
+        >
           <EarthCanvas />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-tertiary rounded-2xl">
-            <p className="text-white text-lg">3D Earth View (Available on higher-end devices)</p>
-          </div>
-        )}
-      </motion.div>
+        </motion.div>
+      )}
+
     </div>
   );
 };
