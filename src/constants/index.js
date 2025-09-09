@@ -257,19 +257,6 @@ const technologies = [
 
 const freelanceWorks = [
   {
-    title: "IEEE PESCE Student Branch Website",
-    description:
-      "Developed the official IEEE PESCE website for the student branch of IEEE PES College of Engineering, Mandya. As the Director of Technical Activities, I contributed both technically and organizationally.",
-    images: [ieee1, ieee2, ieee3, ieee4],
-    status: "Completed",
-    learnings: [
-      "Enhanced skills in React and Tailwind CSS",
-      "Improved website design and UI/UX understanding",
-      "Gained experience in project coordination and team collaboration",
-    ],
-    link: { type: "normal", url: "https://ieeepesce.com/" },
-  },
-  {
     title: "Manmed Dynamics Website",
     description:
       "Official company website under development for Manmed Dynamics, showcasing services and company vision. Currently ongoing with more details to be disclosed after launch.",
@@ -281,6 +268,19 @@ const freelanceWorks = [
       "Gaining experience in client communication and iterative development",
     ],
     link: { type: "ongoing" },
+  },
+  {
+    title: "IEEE PESCE Student Branch Website",
+    description:
+      "Developed the official IEEE PESCE website for the student branch of IEEE PES College of Engineering, Mandya. As the Director of Technical Activities, I contributed both technically and organizationally.",
+    images: [ieee1, ieee2, ieee3, ieee4],
+    status: "Completed",
+    learnings: [
+      "Enhanced skills in React and Tailwind CSS",
+      "Improved website design and UI/UX understanding",
+      "Gained experience in project coordination and team collaboration",
+    ],
+    link: { type: "normal", url: "https://ieeepesce.com/" },
   },
   {
     title: "Form AI Generator and Editor (PDF Editor)",
